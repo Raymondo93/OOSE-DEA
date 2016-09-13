@@ -125,14 +125,14 @@ class AnimatieRegelaar extends JPanel
 			{}
 		}else if(e.getSource() == startButton)
 		{
-            ba.start();
+            ba.start(this);
 
             //Change the button from start to stop
             startButton.setVisible(false);
             stopButton.setVisible(true);
         }else if(e.getSource() == stopButton)
         {
-            ba.stop(this);
+            ba.stop();
 
             // Change to button to disabled start button.
             // StartButton will be enabled after the thread has succesfullystopped
@@ -144,6 +144,8 @@ class AnimatieRegelaar extends JPanel
 	
     public void threadHasStopped() {
         startButton.setEnabled(true);
+		startButton.setVisible(true);
+		stopButton.setVisible(false);
     }
 
 }
