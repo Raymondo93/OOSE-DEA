@@ -1,0 +1,2 @@
+run main methods:
+mvn exec:java -Dexec.mainClass="nl.ica.oose.TerugTellerClient"
