@@ -2,6 +2,7 @@ package Sorter;
 
 import junit.framework.TestCase;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -10,42 +11,55 @@ import java.util.ArrayList;
 public class SorterTest extends TestCase {
 
     public void testEmptyList(){
-        ISorter sorter = new Sorter();
-        ArrayList<Integer> emptyList = new ArrayList<Integer>();
+
 
         try {
+            ISorter sorter = new Sorter();
+            ArrayList<Integer> emptyList = new ArrayList<Integer>();
             sorter.sortIntegers(emptyList);
             fail("Expected exception: illegalArgumentException");
         }catch(IllegalArgumentException e){
             assertEquals("The list was empty", e.getMessage());
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
     public void testNullList(){
-        ISorter sorter = new Sorter();
-        ArrayList<Integer> nullList = null;
+
 
         try {
+            ISorter sorter = new Sorter();
+            ArrayList<Integer> nullList = null;
             sorter.sortIntegers(nullList);
             fail("Expected exception: illegalArgumentException");
         }catch(IllegalArgumentException e){
             assertEquals("The list was empty", e.getMessage());
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
     public void testAlreadySorted(){
-        ISorter sorter = new Sorter();
-        ArrayList<Integer> sortedIntegers = new ArrayList<Integer>();
 
-        sortedIntegers.add(1);
-        sortedIntegers.add(2);
-        sortedIntegers.add(3);
-        sortedIntegers.add(4);
-        sortedIntegers.add(5);
+        try {
+            ISorter sorter = new Sorter();
+            ArrayList<Integer> sortedIntegers = new ArrayList<Integer>();
 
-        ArrayList<Integer> resortedIntegers = sorter.sortIntegers(sortedIntegers);
+            sortedIntegers.add(1);
+            sortedIntegers.add(2);
+            sortedIntegers.add(3);
+            sortedIntegers.add(4);
+            sortedIntegers.add(5);
 
-        assertEquals(sortedIntegers, resortedIntegers);
+            ArrayList<Integer> resortedIntegers = null;
+            resortedIntegers = sorter.sortIntegers(sortedIntegers);
+            assertEquals(sortedIntegers, resortedIntegers);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 }
