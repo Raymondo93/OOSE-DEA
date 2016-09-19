@@ -11,11 +11,9 @@ import java.util.ArrayList;
 public class SorterTest extends TestCase {
 
     public void testEmptyList(){
-
-
         try {
             ISorter sorter = new Sorter();
-            ArrayList<Integer> emptyList = new ArrayList<Integer>();
+            Integer[] emptyList = {};
             sorter.sortIntegers(emptyList);
             fail("Expected exception: illegalArgumentException");
         }catch(IllegalArgumentException e){
@@ -26,11 +24,9 @@ public class SorterTest extends TestCase {
     }
 
     public void testNullList(){
-
-
         try {
             ISorter sorter = new Sorter();
-            ArrayList<Integer> nullList = null;
+            Integer[] nullList = null;
             sorter.sortIntegers(nullList);
             fail("Expected exception: illegalArgumentException");
         }catch(IllegalArgumentException e){
@@ -41,25 +37,15 @@ public class SorterTest extends TestCase {
     }
 
     public void testAlreadySorted(){
-
         try {
             ISorter sorter = new Sorter();
-            ArrayList<Integer> sortedIntegers = new ArrayList<Integer>();
+            Integer[] sortedIntegers = {1,2,3,4,5};
 
-            sortedIntegers.add(1);
-            sortedIntegers.add(2);
-            sortedIntegers.add(3);
-            sortedIntegers.add(4);
-            sortedIntegers.add(5);
-
-            ArrayList<Integer> resortedIntegers = null;
+            Integer[] resortedIntegers = null;
             resortedIntegers = sorter.sortIntegers(sortedIntegers);
             assertEquals(sortedIntegers, resortedIntegers);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-
-
     }
-
 }
