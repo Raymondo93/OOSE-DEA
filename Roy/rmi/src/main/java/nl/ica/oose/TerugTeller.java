@@ -15,7 +15,6 @@ public class TerugTeller extends UnicastRemoteObject implements ITerugTeller {
     public TerugTeller() throws RemoteException {
 
     }
-
     public void setValue(int value) throws RemoteException {
         this.value = value;
     }
