@@ -26,6 +26,8 @@ public class SortClient {
                 Integer[] result = sorter.sortIntegers(lists[i]);
                 join(result);
             }
+
+            System.out.println("" + sortedArray);
         } catch (RemoteException e) {
             e.printStackTrace();
         } catch (NotBoundException e) {
