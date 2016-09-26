@@ -52,8 +52,8 @@ public class Customer {
     }
 	
     private int getFrequentRenterPoints() {
-        int frequentRenterPoints = 0;
-        Enumeration rentals = _rentals.elements();
+		Enumeration rentals = _rentals.elements();
+		int frequentRenterPoints = 0;
 
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
@@ -64,7 +64,6 @@ public class Customer {
     }
 
     private double getTotalCharge() {
-
 		Enumeration rentals = _rentals.elements();
 		double totalAmount = 0;
 
