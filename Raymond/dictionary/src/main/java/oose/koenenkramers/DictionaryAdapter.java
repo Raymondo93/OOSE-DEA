@@ -3,36 +3,41 @@ package oose.koenenkramers;
 import nl.oose.dea.koenenkramers.KoenenDictionary;
 import nl.oose.dea.koenenkramers.KramersDictionary;
 
-/**
- * Created by Ray on 29/09/16.
- */
-public class DictionaryAdapter implements IDictionary{
-    private KoenenDictionary koenen;
-    private KramersDictionary kramer;
 
+/**
+ * Created by Ray on 30/09/16.
+ */
+public class DictionaryAdapter implements IDictionary {
+
+    private KoenenDictionary koenen;
+    private KramersDictionary kramers;
+
+<<<<<<< Updated upstream
     public DictionaryAdapter () {
         koenen = new KoenenDictionary();
         kramer = new KramersDictionary();
+=======
+    public DictionaryAdapter() {
+
+>>>>>>> Stashed changes
     }
 
-    private String lookUp(String word) {
-        return koenen.lookUp(word);
+    private String getKoenen(String input) {
+        return koenen.lookUp(input);
     }
 
-    private String find(String word) {
-        return kramer.find(word);
+    private String getKramers(String input) {
+        return kramers.find(input);
     }
 
-    public String getWord(String word){
-        String answer;
-        word = word.toLowerCase();
-        if (this.lookUp(word) != null) {
-            answer = this.lookUp(word);
+    public String translate(String input) {
+        String answer = getKoenen(input);
+        if (answer == null) {
+            answer = getKramers(input);
             return answer;
-        } else if(this.find(word) != null) {
-            answer = this.find(word);
+        } else {
+            answer = "No answer";
             return answer;
         }
-        return null;
     }
 }
