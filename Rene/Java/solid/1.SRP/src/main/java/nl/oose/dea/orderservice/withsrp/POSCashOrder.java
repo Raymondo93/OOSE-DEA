@@ -7,9 +7,4 @@ public class POSCashOrder extends Order {
     public POSCashOrder(Cart cart) {
         super(cart);
     }
-
-    @Override
-    public void checkout() {
-
-    }
 }
