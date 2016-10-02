@@ -11,7 +11,8 @@ public class DictionaryAdapter implements IDictionary{
     private KramersDictionary kramer;
 
     public DictionaryAdapter () {
-
+        koenen = new KoenenDictionary();
+        kramer = new KramersDictionary();
     }
 
     private String lookUp(String word) {
