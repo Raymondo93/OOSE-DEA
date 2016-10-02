@@ -9,11 +9,6 @@ public class POSCreditOrder extends Order implements PaymentProcessor{
     }
 
     @Override
-    public void checkout() {
-
-    }
-
-    @Override
     public boolean chargeCard(PaymentDetails paymentDetails, Cart cart) {
         return false;
     }
