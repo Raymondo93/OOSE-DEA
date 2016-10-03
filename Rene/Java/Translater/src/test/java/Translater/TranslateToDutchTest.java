@@ -9,8 +9,8 @@ public class TranslateToDutchTest {
     private TranslateToDutch translator;
 
     public static final String EnglishWordInBoth = "aeroplane";
-    public static final String EnglishWordNotInKoenen = "submarine";
-    public static final String EnglishWordNotInKramers = "whale";
+    public static final String EnglishWordInKramer = "submarine";
+    public static final String EnglishWordInKoenen = "whale";
     public static final String EnglishWordNotFound = "test";
 
     @Before
@@ -26,15 +26,15 @@ public class TranslateToDutchTest {
     }
 
     @Test
-    public void testTEnglishWordNotInKoenen() {
-        String translated = translator.translate(EnglishWordNotInKoenen);
+    public void testTranslateEnglishWordInKramer() {
+        String translated = translator.translate(EnglishWordInKramer);
 
         assertEquals("onderzeeboot", translated);
     }
 
     @Test
-    public void testTtranslateEnglishWordNotInKramers(){
-        String translated = translator.translate(EnglishWordNotInKramers);
+    public void testTranslateEnglishWordInKoenen(){
+        String translated = translator.translate(EnglishWordInKoenen);
 
         assertEquals("walvis", translated);
     }

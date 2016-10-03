@@ -1,10 +1,17 @@
 package Translater;
 
-/**
- * Created by renet on 10/2/2016.
- */
 public class TranslateToDutch {
+
     public String translate(String word) {
-        return null;
+        String translatedWord = "";
+        for (DictionaryTypes dictionaryType : DictionaryTypes.values()) {
+            IDictionaryAdapter dictionary = DictionaryFactory.getDictionaryAdapter(dictionaryType);
+            translatedWord = dictionary.translate(word);
+
+            if(translatedWord != null && !translatedWord.equals("")){
+                break;
+            }
+        }
+        return translatedWord == null ? "" : translatedWord;
     }
 }
